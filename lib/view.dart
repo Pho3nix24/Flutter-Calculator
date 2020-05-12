@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:fluttercalculator/add.dart';
+import 'package:fluttercalculator/multiply.dart';
 import 'package:fluttercalculator/subtract.dart';
 
 
@@ -66,7 +67,10 @@ class View extends StatelessWidget {
           ),
           GestureDetector(
             onTap: (){
-              print("Multiply");
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context)=>MultiplyApp()
+              ));
+              //print("Multiply");
             },
             child: Container(
               width: double.infinity,
