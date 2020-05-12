@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:fluttercalculator/add.dart';
+import 'package:fluttercalculator/divide.dart';
 import 'package:fluttercalculator/multiply.dart';
 import 'package:fluttercalculator/subtract.dart';
 
@@ -10,6 +11,13 @@ class View extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [Colors.purpleAccent,Colors.blue]
+        )
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -92,7 +100,10 @@ class View extends StatelessWidget {
           ),
           GestureDetector(
             onTap: (){
-              print("Divide");
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context)=>DivideApp()
+              ));
+              //print("Divide");
             },
             child: Container(
               width: double.infinity,

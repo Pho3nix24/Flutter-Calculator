@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class AddApp extends StatefulWidget {
+class DivideApp extends StatefulWidget {
   @override
-  _AddAppState createState() => _AddAppState();
+  _DivideAppState createState() => _DivideAppState();
 }
 
-class _AddAppState extends State<AddApp> {
+class _DivideAppState extends State<DivideApp> {
   TextEditingController num1 = TextEditingController();
   TextEditingController num2 = TextEditingController();
-  int _sum = 0;
+  double _quotient = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +17,12 @@ class _AddAppState extends State<AddApp> {
       home: Scaffold(
         body: Container(
           decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [Colors.redAccent, Colors.yellowAccent])),
+            gradient: LinearGradient(
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+              colors: [Colors.orange,Colors.yellowAccent]
+            )
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -30,21 +32,21 @@ class _AddAppState extends State<AddApp> {
                 child: Column(
                   children: <Widget>[
                     TextField(
-                      controller: num1,
                       decoration: InputDecoration(
                           hintText: "Number 1",
                           border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15.0))),
+                              borderRadius: BorderRadius.circular(20.0))),
+                      controller: num1,
                     ),
                     SizedBox(
                       height: 30.0,
                     ),
                     TextField(
-                      controller: num2,
                       decoration: InputDecoration(
                           hintText: "Number 2",
                           border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15.0))),
+                              borderRadius: BorderRadius.circular(20.0))),
+                      controller: num2,
                     ),
                     SizedBox(
                       height: 30.0,
@@ -52,13 +54,12 @@ class _AddAppState extends State<AddApp> {
                     FlatButton(
                       onPressed: () {
                         setState(() {
-                          //var a=num1.text;
-                          //var b=num2.text;
-                          _sum = int.parse(num1.text) + int.parse(num2.text);
+                          _quotient =
+                              double.parse(num1.text) / double.parse(num2.text);
                         });
                       },
                       child: Text(
-                        "Add",
+                        "Divide",
                         style: TextStyle(fontSize: 30.0),
                       ),
                     ),
@@ -66,7 +67,7 @@ class _AddAppState extends State<AddApp> {
                       height: 30.0,
                     ),
                     Text(
-                      "Sum: " + _sum.toString(),
+                      "Quotient: " + _quotient.toString(),
                       style: TextStyle(fontSize: 30.0),
                     )
                   ],
