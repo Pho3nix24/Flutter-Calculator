@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class AddApp extends StatefulWidget {
+class SubtractApp extends StatefulWidget {
   @override
-  _AddAppState createState() => _AddAppState();
+  _SubtractAppState createState() => _SubtractAppState();
 }
 
-class _AddAppState extends State<AddApp> {
+class _SubtractAppState extends State<SubtractApp> {
   TextEditingController num1 = TextEditingController();
   TextEditingController num2 = TextEditingController();
-  int _sum = 0;
+  int _dif = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +18,9 @@ class _AddAppState extends State<AddApp> {
         body: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [Colors.redAccent, Colors.yellowAccent])),
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                  colors: [Colors.blueAccent, Colors.cyanAccent])),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -30,43 +30,37 @@ class _AddAppState extends State<AddApp> {
                 child: Column(
                   children: <Widget>[
                     TextField(
-                      controller: num1,
                       decoration: InputDecoration(
-                          hintText: "Number 1",
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15.0))),
+                          hintText: "Number 1", border: OutlineInputBorder()),
+                      controller: num1,
                     ),
                     SizedBox(
-                      height: 20.0,
+                      height: 30.0,
                     ),
                     TextField(
-                      controller: num2,
                       decoration: InputDecoration(
-                          hintText: "Number 2",
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15.0))),
+                          hintText: "Numbern 2", border: OutlineInputBorder()),
+                      controller: num2,
                     ),
                     SizedBox(
-                      height: 20.0,
+                      height: 30.0,
                     ),
                     FlatButton(
                       onPressed: () {
                         setState(() {
-                          //var a=num1.text;
-                          //var b=num2.text;
-                          _sum = int.parse(num1.text) + int.parse(num2.text);
+                          _dif = int.parse(num1.text) - int.parse(num2.text);
                         });
                       },
                       child: Text(
-                        "Add",
+                        "Subtract",
                         style: TextStyle(fontSize: 30.0),
                       ),
                     ),
                     SizedBox(
-                      height: 20.0,
+                      height: 30.0,
                     ),
                     Text(
-                      "Sum: " + _sum.toString(),
+                      "Difference: " + _dif.toString(),
                       style: TextStyle(fontSize: 30.0),
                     )
                   ],

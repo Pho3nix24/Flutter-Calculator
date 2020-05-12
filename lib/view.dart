@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:fluttercalculator/add.dart';
+import 'package:fluttercalculator/subtract.dart';
 
 
 
@@ -16,7 +17,7 @@ class View extends StatelessWidget {
             onTap: (){
               print("Add");
               Navigator.push(context, MaterialPageRoute(
-                  builder: (context)=>AddView()
+                  builder: (context)=>AddApp()
               ));
             },
             child: Container(
@@ -39,7 +40,11 @@ class View extends StatelessWidget {
           ),
           GestureDetector(
             onTap: (){
-              print("Subtract");
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context)=>SubtractApp()
+              ));
+
+              //print("Subtract");
             },
             child: Container(
               width: double.infinity,
